@@ -11,10 +11,10 @@
   <body class="flex flex-col items-center h-screen min-h-screen bg-gradient-to-b from-slate-200 from-40% via-lime-100 via-70% to-amber-200 to-98%">
     
     <!-- LA CAPÇALERA -->
-    <div class="justify-top justify-start mb-36">
+    <div class="justify-top justify-start mb-36 mt-4">
       <div class="flex items-start px-36">
         <img class="h-12 w-8 ml-auto mr-2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Escut_del_Pinell_de_Brai.svg/1200px-Escut_del_Pinell_de_Brai.svg.png" alt="Your Company">
-      <button class="bg-white-500 shadow-lg shadow-black-500/50 w-full">
+      <button class="bg-white-500 shadow-lg shadow-black-500/50 w-full rounded-md">
       <div class="flex items-center pt-2 pb-4 px-36">
         <p class="pl-2 pt-2 text-gray-500 font-semibold text-sm">
           VIDEOS AMB INFORMACIÓ
@@ -25,14 +25,20 @@
     </div>
     <!-- S'ACABA -->
 
+    <div class="pb-8">
+      <a class="text-sm font-bold underline decoration-amber-500/30 text-stone-400">
+        PITJA DAMUNT EL QUE VULGUIS 
+      </a>
+    </div>
+
     <!-- LOS RECUADRES -->
     <div class="flex flex-col items-center mt-8">
-      <div class="flex w-2/4 items-center gap-x-6">
+      <div class="flex w-2/4 items-center gap-x-10">
 
-        <div class="flex flex-col justify-center w-1/2 h-32 p-4 border-2 border-gray-300 mb-4 h-18 rounded-lg shadow-lg shadow-black-500/50">
+        <div class="flex flex-col justify-center w-1/2 h-32 border-2 h-18 rounded-lg py-4 shadow-lg shadow-black-500/50">
           <div class="relative">
             <img src="https://drive.google.com/uc?id=1YvE3Rf-LXaT0d3nukAytwZR1cwGMQDEb" alt="" class="cursor-pointer w-5/12 rounded mx-auto" id="thumbnail1">
-            <!-- Contenedor oculto del video -->
+            
             <div class="absolute inset-0 hidden " id="videoContainer1">
               <iframe src="" class="w-full h-full" frameborder="0" allowfullscreen></iframe>
               <button class="absolute top-0 right-0 m-4 text-white" id="closeButton1">&times;</button>
@@ -40,10 +46,10 @@
           </div>      
         </div>
     
-        <div class="flex flex-col justify-center w-1/2 h-32 p-4 border-2 border-gray-300 mb-4 h-24 rounded-lg shadow-lg shadow-black-500/50">
+        <div class="flex flex-col justify-center w-1/2 h-32 border-2 h-24 rounded-lg py-4 shadow-lg shadow-black-500/50">
           <div class="relative">
             <img src="https://drive.google.com/uc?id=1YvE3Rf-LXaT0d3nukAytwZR1cwGMQDEb" alt="" class="cursor-pointer w-5/12 rounded mx-auto" id="thumbnail2">
-            <!-- Contenedor oculto del video -->
+            
             <div class="absolute inset-0 hidden " id="videoContainer2">
               <iframe src="" class="w-full h-full" frameborder="0" allowfullscreen></iframe>
               <button class="absolute top-0 right-0 m-4 text-white" id="closeButton2">&times;</button>
@@ -52,12 +58,12 @@
         </div>
       </div>
     
-      <div class="flex w-2/3 mt-8 items-center gap-x-6">
+      <div class="flex w-2/4 mt-12 items-center gap-x-10">
 
-        <div class="flex flex-col justify-center w-1/2 h-32 p-4 border-2 border-gray-300 mb-4 h-18 rounded-lg shadow-lg shadow-black-500/50">
+        <div class="flex flex-col justify-center w-1/2 h-32 border-2 h-18 rounded-lg py-4 shadow-lg shadow-black-500/50">
           <div class="relative">
-            <img src="https://drive.google.com/uc?id=1YvE3Rf-LXaT0d3nukAytwZR1cwGMQDEb" alt="" class="cursor-pointer w-4/12 rounded mx-auto" id="thumbnail1">
-            <!-- Contenedor oculto del video -->
+            <img src="https://drive.google.com/uc?id=1YvE3Rf-LXaT0d3nukAytwZR1cwGMQDEb" alt="" class="cursor-pointer w-5/12 rounded mx-auto" id="thumbnail3">
+            
             <div class="absolute inset-0 hidden " id="videoContainer1">
               <iframe src="" class="w-full h-full" frameborder="0" allowfullscreen></iframe>
               <button class="absolute top-0 right-0 m-4 text-white" id="closeButton1">&times;</button>
@@ -65,10 +71,10 @@
           </div>      
         </div>
     
-        <div class="flex flex-col justify-center w-1/2 h-32 p-4 border-2 border-gray-300 mb-4 h-24 rounded-lg shadow-lg shadow-black-500/50">
+        <div class="flex flex-col justify-center w-1/2 h-32 border-2 h-24 py-4 rounded-lg shadow-lg shadow-black-500/50">
           <div class="relative">
-            <img src="https://drive.google.com/uc?id=1YvE3Rf-LXaT0d3nukAytwZR1cwGMQDEb" alt="" class="cursor-pointer w-4/12 rounded mx-auto" id="thumbnail2">
-            <!-- Contenedor oculto del video -->
+            <img src="https://drive.google.com/uc?id=1YvE3Rf-LXaT0d3nukAytwZR1cwGMQDEb" alt="" class="cursor-pointer w-5/12 rounded mx-auto" id="thumbnail4">
+            
             <div class="absolute inset-0 hidden " id="videoContainer2">
               <iframe src="" class="w-full h-full" frameborder="0" allowfullscreen></iframe>
               <button class="absolute top-0 right-0 m-4 text-white" id="closeButton2">&times;</button>
@@ -84,10 +90,10 @@
   <footer class="mt-auto mb-16">
     <div class="flex flex-row gap-x-20">
     <div>
-      <a class="text-sky-600 text-sm font-semibold" href="https://pinelldebrai.altanet.org/">PÀGINA DEL AJUNTAMENT</a>
+      <a class="text-sky-600 text-xs font-semibold" href="https://pinelldebrai.altanet.org/">PÀGINA DEL AJUNTAMENT</a>
     </div>
     <div>
-      <a class="text-sky-600 text-sm font-semibold" href="https://web.eagora.app/a/pinell">L'EAGORA</a>
+      <a class="text-sky-600 text-xs font-semibold" href="https://web.eagora.app/a/pinell">L'EAGORA</a>
     </div>
   </div>
   </footer>
