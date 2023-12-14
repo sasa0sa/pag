@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'Afacad';
+    src: url('./fonts/Open_Sans/Afacad/Afacad-VariableFont_wght.ttf') format('truetype');
+  }
+
+@font-face {
+    font-family: 'montserrat';
+    src: url('./fonts/Open_Sans/montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');
+}  
