@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="scroll-smooth" lang="en" style="font-family: 'Montserrat', sans-serif">
+<html class="" lang="en" style="font-family: 'Montserrat', sans-serif">
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
@@ -11,10 +11,17 @@
     body {
       overflow: visible;
     }
+    #particles-js {
+  height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1; 
+}
   </style>
 </head>
 <body class="relative h-screen">
-  <div class="z-90 relative" id="particles-js">
+  <div class="z-50 relative" id="particles-js">
     <script src="script.js"></script>
     <a class="m-6 justify-center flex flex-center animate-pulse text-green-700/50 font-semibold">
       INFORMACIÓ
@@ -63,13 +70,26 @@
       </div>
     </div>
 
-    <a href="#" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 cursor-pointer mb-2">
+    <a href="#" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 cursor-pointer mb-2" id="scrollBtn">
       <svg class="animate-bounce w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
       </svg>
     </a>
     
-
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("html").on("click", "#scrollBtn", function (e) {
+          e.preventDefault();
+    
+          $('html, body').animate({
+            scrollTop: $(window).scrollTop() + 300
+          }, 500);
+        });
+      });
+    </script>
+    
+   
     
   </div>
 </body>
