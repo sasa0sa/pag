@@ -11,3 +11,9 @@
     font-family: 'montserrat';
     src: url('./fonts/Open_Sans/montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');
 }  
+
+.scroll-smooth {
+  scroll-behavior: smooth;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.5s;
+}
