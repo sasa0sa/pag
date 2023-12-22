@@ -18,9 +18,4 @@
   transition-duration: 0.5s;
 }
 
-#closeIcon {
-  bottom: 10px; /* Mueve la cruz hacia abajo (ajusta el valor según tus necesidades) */
-  right: 20px; /* Mantén el valor original o ajusta según tus necesidades */
-}
-
 
