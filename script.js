@@ -16,3 +16,38 @@ document.addEventListener("DOMContentLoaded", function() {
     retina_detect: true
   });
 });
+
+
+function showModal(imageSrc) {
+  // Muestra la imagen modal
+  var modal = document.getElementById('modal');
+  modal.style.display = 'flex';
+
+  // Establece la fuente de la imagen modal
+  var modalImage = document.getElementById('modalImage');
+  modalImage.src = imageSrc;
+
+  // Muestra el icono de la cruz y asigna el evento de clic
+  var closeIcon = document.getElementById('closeIcon');
+  closeIcon.style.display = 'block';  // <-- Asegúrate de que esta línea esté presente
+  closeIcon.addEventListener('click', closeModal);
+
+  // Desactiva el desplazamiento de fondo mientras se muestra la imagen modal
+  document.body.style.overflow = 'hidden';
+}
+
+
+// Cierra la imagen modal
+function closeModal() {
+  var modal = document.getElementById('modal');
+  modal.style.display = 'none';
+  document.body.style.overflow = 'auto';
+}
+
+// Cierra la imagen modal al hacer clic fuera de ella
+document.getElementById('modal').addEventListener('click', function (event) {
+  if (event.target === this) {
+    closeModal();
+  }
+});
+
