@@ -18,18 +18,23 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-function showModal(imageSrc) {
+document.querySelectorAll('.closeIconNoticies, .closeIconAcampada, .closeIconLlocs, .closeIconResidus').forEach(function (closeIcon) {
+  closeIcon.addEventListener('click', closeModal);
+});
+
+// Resto de tu código
+
+function showModal(modalId, closeIconId, imageSrc) {
   // Muestra la imagen modal
-  var modal = document.getElementById('modal');
+  var modal = document.getElementById(modalId);
   modal.style.display = 'flex';
 
   // Establece la fuente de la imagen modal
-  var modalImage = document.getElementById('modalImage');
+  var modalImage = modal.querySelector('img');
   modalImage.src = imageSrc;
 
-  // Muestra el icono de la cruz y asigna el evento de clic
-  var closeIcon = document.getElementById('closeIcon');
-  closeIcon.style.display = 'block';  // <-- Asegúrate de que esta línea esté presente
+  // Selecciona el elemento del icono de cierre y agrega un evento de clic
+  var closeIcon = document.getElementById(closeIconId);
   closeIcon.addEventListener('click', closeModal);
 
   // Desactiva el desplazamiento de fondo mientras se muestra la imagen modal
@@ -37,17 +42,18 @@ function showModal(imageSrc) {
 }
 
 
-// Cierra la imagen modal
 function closeModal() {
-  var modal = document.getElementById('modal');
+  // Cierra la imagen modal
+  var modal = this.closest('.modal');
   modal.style.display = 'none';
   document.body.style.overflow = 'auto';
 }
 
 // Cierra la imagen modal al hacer clic fuera de ella
-document.getElementById('modal').addEventListener('click', function (event) {
-  if (event.target === this) {
-    closeModal();
-  }
+document.querySelectorAll('.modal').forEach(function (modal) {
+  modal.addEventListener('click', function (event) {
+    if (event.target === this) {
+      closeModal.call(this);
+    }
+  });
 });
-
