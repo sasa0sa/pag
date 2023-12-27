@@ -1,6 +1,6 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import 'node_modules/tailwindcss/base.css';
+@import 'node_modules/tailwindcss/components.css';
+@import 'node_modules/tailwindcss/utilities.css';
 
 @font-face {
     font-family: 'Afacad';
@@ -19,15 +19,19 @@
 }
 
 .modal-content {
-  animation: zoomIn 0.5s ease;
+  animation: bounce 0.5s ease;
 }
 
-@keyframes zoomIn {
-  from {
-    transform: scale(0);
+@keyframes bounce {
+  from, 20%, 50%, 80%, to {
+    transform: translateX(0);
   }
-  to {
-    transform: scale(1);
+  40% {
+    transform: translateX(-30px);
+  }
+  60% {
+    transform: translateX(15px);
   }
 }
+
 
