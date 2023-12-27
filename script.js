@@ -32,6 +32,10 @@ function showModal(imageSrc) {
   closeIcon.style.display = 'block';  // 
   closeIcon.addEventListener('click', closeModal);
 
+   // Añade la clase de animación al contenedor de la imagen modal
+   var modalContent = document.getElementById('noticiesVideo');
+modalContent.classList.add('modal-content');
+ 
   // Desactiva el desplazamiento de fondo mientras se muestra la imagen modal
   document.body.style.overflow = 'hidden';
 }

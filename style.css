@@ -18,4 +18,16 @@
   transition-duration: 0.5s;
 }
 
+.modal-content {
+  animation: zoomIn 0.5s ease;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
 
