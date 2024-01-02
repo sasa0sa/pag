@@ -24,13 +24,13 @@
 
 @keyframes bounce {
   from, 20%, 50%, 80%, to {
-    transform: translateX(0);
+    transform: translateY(0);
   }
   40% {
-    transform: translateX(-30px);
+    transform: translateY(-15px);
   }
   60% {
-    transform: translateX(15px);
+    transform: translateY(15px);
   }
 }
 
