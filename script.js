@@ -18,14 +18,14 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-function showModal(imageSrc) {
+function showModal(videoSrc) {
   // Muestra la imagen modal
   var modal = document.getElementById('noticiesVideo');
   modal.style.display = 'flex';
 
   // Establece la fuente de la imagen modal
-  var modalImage = document.getElementById('videoNoticies');
-  modalImage.src = imageSrc;
+  var modalVideo = document.getElementById('videoNoticies');
+  modalVideo.src = videoSrc;
 
   // Muestra el icono de la cruz y asigna el evento de clic
   var closeIcon = document.getElementById('closeIcon');
