@@ -47,7 +47,7 @@ function closeModal() {
 }
 
 // Cierra la imagen modal al hacer clic fuera de ella
-document.getElementById('noticiesVideo').addEventListener('click', function (event) {
+document.addEventListener("DOMContentLoaded", function() {
   if (event.target === this) {
     closeModal();
   }
