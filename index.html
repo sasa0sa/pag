@@ -20,6 +20,7 @@
     }
   </style>
 </head>
+
 <body class="bg-sky-200/10">
   <div class="z-50 relative">
     <div id="particles-js"></div>
@@ -35,22 +36,7 @@
       </a>
     </div>
     <div class="border border-gray-500/20 mx-32 mb-4 mt-2 w-1/4 mx-auto shadow"></div>
-    
-    <script>
-      let currentOpenContentId = null;
 
-function toggleContent(elementId) {
-    const content = document.getElementById(elementId);
-
-    if (currentOpenContentId && currentOpenContentId !== elementId) {
-        const currentOpenContent = document.getElementById(currentOpenContentId);
-        currentOpenContent.classList.add('hidden');
-    }
-
-    content.classList.toggle('hidden');
-    currentOpenContentId = content.classList.contains('hidden') ? null : elementId;
-}
-  </script>
   
   <div class="flex justify-center gap-x-16 mt-28">
 

@@ -1,8 +1,9 @@
+// fondo 
 document.addEventListener("DOMContentLoaded", function() {
   particlesJS("particles-js", {
     particles: {
       number: { value: 50, density: { enable: true, value_area: 800 } },
-      color: { value: "#0ea5e9" }, // Color de la hierba
+      color: { value: "#0ea5e9" }, 
       shape: { type: "circle" },
       opacity: { value: 0.5, random: true, anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false } },
       size: { value: 5, random: true, anim: { enable: false, speed: 40, size_min: 0.1, sync: false } },
@@ -18,37 +19,53 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+
+// per als videos 
 function showModal(videoSrc) {
-  // Muestra la imagen modal
+
   var modal = document.getElementById('noticiesVideo');
   modal.style.display = 'flex';
 
-  // Establece la fuente de la imagen modal
+
   var modalVideo = document.getElementById('videoNoticies');
   modalVideo.src = videoSrc;
 
-  // Muestra el icono de la cruz y asigna el evento de clic
+
   var closeIcon = document.getElementById('closeIcon');
   closeIcon.style.display = 'block';  // 
   closeIcon.addEventListener('click', closeModal);
 
-   // Añade la clase de animación al contenedor de la imagen modal
    var modalContent = document.getElementById('noticiesVideo');
 modalContent.classList.add('modal-content');
  
-  // Desactiva el desplazamiento de fondo mientras se muestra la imagen modal
+
   document.body.style.overflow = 'hidden';
 }
-// Cierra la imagen modal
+
+// per tancar 
 function closeModal() {
   var modal = document.getElementById('noticiesVideo');
   modal.style.display = 'none';
   document.body.style.overflow = 'auto';
 }
 
-// Cierra la imagen modal al hacer clic fuera de ella
 document.addEventListener("DOMContentLoaded", function() {
   if (event.target === this) {
     closeModal();
   }
 });
+
+// fleches 
+let currentOpenContentId = null;
+
+function toggleContent(elementId) {
+    const content = document.getElementById(elementId);
+
+    if (currentOpenContentId && currentOpenContentId !== elementId) {
+        const currentOpenContent = document.getElementById(currentOpenContentId);
+        currentOpenContent.classList.add('hidden');
+    }
+
+    content.classList.toggle('hidden');
+    currentOpenContentId = content.classList.contains('hidden') ? null : elementId;
+}
