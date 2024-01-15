@@ -303,14 +303,16 @@ function closeModal(modalId) {
   if (modalVideo) {
     modalVideo.pause(); 
   }
+
+  window.location.reload();  
 }
 
 document.addEventListener("DOMContentLoaded", function() {
   if (event.target === this) {
-    closeModal('noticiesVideo');
-    closeModal('residusVideo');
-    closeModal('acampadaVideo');
-    closeModal('llocsVideo');
+    closeModal('noticiesVideo', 'noticiesVideoId');
+    closeModal('residusVideo', 'residusVideoId');
+    closeModal('acampadaVideo', 'acampadaVideoId');
+    closeModal('llocsVideo', 'llocsVidedoId');
   }
 });
 
