@@ -41,7 +41,7 @@
       <div class="relative group">
       <div class="border border-gray-80 px-8 rounded mr-4">
         <div class="py-6 px-8 justify-center flex flex-center border bg-gray-300/20 my-4 rounded shadow shadow-lg">
-          <a href="#" onclick="showModal('https://www.youtube.com/watch?v=B2RFjC_ZWV8', 'noticiesVideo', 'closeIcon', 'noticiesVideoIframe')">
+          <a href="#" onclick="showModal('https://www.youtube.com/watch?v=B2RFjC_ZWV8', 'noticiesVideo', 'closeIcon')">
             <img class="w-96 h-auto rounded" src="imatges/diaNoticies.gif">
           </a>
         </div>
@@ -56,7 +56,7 @@
             &#10006;
           </span>                  
           <!-- Contenido de la imagen modal -->
-            <iframe class=" mx-auto flex flex-center rounded" width="1200" height="700" src="https://www.youtube.com/embed/B2RFjC_ZWV8?autoplay=1&mute=1" frameborder="0" allowfullscreen></iframe>
+            <iframe class=" mx-auto flex flex-center rounded" width="1200" height="700" src="https://www.youtube.com/embed/B2RFjC_ZWV8" frameborder="0" allowfullscreen></iframe>
         </div>
       </div>
         <div class="absolute top-72 left-1/2 transform -translate-x-1/2 cursor-pointer pt-16" onclick="toggleContent('seq_anuncis')">
@@ -94,7 +94,7 @@
       <div class="relative group">
       <div class="border border-gray-80 px-8 rounded mr-4">
         <div class="py-6 px-8 justify-center flex flex-center border bg-gray-300/20 my-4 rounded shadow shadow-lg">
-          <a href="#" onclick="showModal('https://www.youtube.com/watch?v=B2RFjC_ZWV8', 'residusVideo', 'closeIconResidus', 'residusVideoIframe')">
+          <a href="#" onclick="showModal('https://www.youtube.com/watch?v=B2RFjC_ZWV8', 'residusVideo', 'closeIconResidus')">
           <img class="w-96 h-auto rounded" src="imatges/Com gestionar els residus.gif">
           </a>
         </div>
@@ -109,7 +109,7 @@
             &#10006;
           </span>                  
           <!-- Contenido de la imagen modal -->
-            <iframe class="mx-auto flex flex-center rounded" width="1200" height="700" src="https://www.youtube.com/embed/B2RFjC_ZWV8?autoplay=1&mute=1" frameborder="0" allowfullscreen></iframe>
+            <iframe class="mx-auto flex flex-center rounded" width="1200" height="700" src="https://www.youtube.com/embed/B2RFjC_ZWV8" frameborder="0" allowfullscreen></iframe>
         </div>
       </div>
       <div class="absolute top-72 left-1/2 transform -translate-x-1/2 cursor-pointer pt-16" onclick="toggleContent('seq_residus')">
@@ -151,7 +151,7 @@
       <div class="relative group">
       <div class="border border-gray-80 px-8 rounded mr-4">
         <div class="py-6 px-8 justify-center flex flex-center border bg-gray-300/20 my-4 rounded shadow shadow-lg">
-          <a href="#" onclick="showModal('https://www.youtube.com/watch?v=wXij200SqEY', 'acampadaVideo', 'closeIconAcampada', 'acampadaVideoIframe')">
+          <a href="#" onclick="showModal('https://www.youtube.com/watch?v=wXij200SqEY', 'acampadaVideo', 'closeIconAcampada')">
             <img class="w-96 h-auto rounded" src="imatges/ACAMPADA.gif">
           </a>
         </div>
@@ -166,7 +166,7 @@
             &#10006;
           </span>                  
           <!-- Contenido de la imagen modal -->
-            <iframe class="mx-auto flex flex-center rounded" width="1200" height="700" src="https://www.youtube.com/embed/wXij200SqEY?autoplay=1&mute=1" frameborder="0" allowfullscreen></iframe>
+            <iframe class="mx-auto flex flex-center rounded" width="1200" height="700" src="https://www.youtube.com/embed/wXij200SqEY" frameborder="0" allowfullscreen></iframe>
         </div>
         </div>
         <div class="absolute top-72 left-1/2 transform -translate-x-1/2 cursor-pointer pt-16" onclick="toggleContent('seq_acampada')">
@@ -205,7 +205,7 @@
       <div class="relative group">
       <div class="border border-gray-80 px-8 rounded mr-4">
         <div class="py-6 px-8 justify-center flex flex-center border bg-gray-300/20 my-4 rounded shadow shadow-lg">
-          <a href="#" onclick="showModal('https://www.youtube.com/watch?v=1OQhzbPSsFA', 'llocsVideo', 'closeIconLlocs', 'llocsVideoIframe')">
+          <a href="#" onclick="showModal('https://www.youtube.com/watch?v=1OQhzbPSsFA', 'llocsVideo', 'closeIconLlocs')">
           <img class="w-96 h-auto rounded" src="imatges/LLOCS.gif">
           </a>
         </div>
@@ -220,7 +220,7 @@
             &#10006;
           </span>                  
           <!-- Contenido de la imagen modal -->
-            <iframe class="mx-auto flex flex-center rounded" width="1200" height="700" src="https://www.youtube.com/embed/1OQhzbPSsFA?autoplay=1&mute=1" frameborder="0" allowfullscreen></iframe>
+            <iframe class="mx-auto flex flex-center rounded" width="1200" height="700" src="https://www.youtube.com/embed/1OQhzbPSsFA" frameborder="0" allowfullscreen></iframe>
         </div>
       </div>
         <div class="absolute top-72 left-1/2 transform -translate-x-1/2 cursor-pointer pt-16" onclick="toggleContent('seq_turisme')">
@@ -269,7 +269,15 @@
   var modalVideo = document.getElementById(videoId);
   if (modalVideo) {
     modalVideo.src = videoSrc;
-    modalVideo.currentTime = 0; 
+    modalVideo.load();
+    modalVideo.currentTime = 0;
+
+    
+    modalVideo.addEventListener('ended', function() {
+      modalVideo.currentTime = 0;
+      modalVideo.play();
+    });
+
     modalVideo.play();
   }
 
