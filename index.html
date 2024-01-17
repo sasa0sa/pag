@@ -272,19 +272,19 @@
     modalVideo.load();
     modalVideo.currentTime = 0;
 
-    
-    modalVideo.addEventListener('ended', function() {
-      modalVideo.currentTime = 0;
-      modalVideo.play();
-    });
+  modalVideo.addEventListener('ended', function() {
+  modalVideo.currentTime = 0;
+  modalVideo.play();
+});
 
-    modalVideo.play();
+modalVideo.play();
   }
 
   var closeIcon = document.getElementById(closeIconId); 
   closeIcon.style.display = 'block';
   closeIcon.addEventListener('click', function() {
-    closeModal(modalId);
+    closeModal(modalId, videoId);
+    reloadPage(); 
   });
 
   var modalContent = document.getElementById(modalId);
@@ -294,17 +294,21 @@
 }
 
 // per tancar 
-function closeModal(modalId) {
+function closeModal(modalId, videoId) {
   var modal = document.getElementById(modalId);
   modal.style.display = 'none';
   document.body.style.overflow = 'auto';
 
   var modalVideo = document.getElementById(videoId);
+  
   if (modalVideo) {
-    modalVideo.pause(); 
+    modalVideo.src = '';
   }
 
-  window.location.reload();  
+}
+
+function reloadPage() {
+  location.reload();
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -315,6 +319,9 @@ document.addEventListener("DOMContentLoaded", function() {
     closeModal('llocsVideo', 'llocsVidedoId');
   }
 });
+
+
+
 
 // fleches 
 let currentOpenContentId = null;
