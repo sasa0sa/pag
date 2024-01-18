@@ -6,6 +6,7 @@
   <link href="style.css" rel="stylesheet">
   <title>Informació</title>
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://www.youtube.com/iframe_api"></script>
   <style>
     body {
       overflow: visible;
@@ -167,7 +168,7 @@
             <iframe class="mx-auto flex flex-center rounded" width="1200" height="700" src="https://www.youtube.com/embed/wXij200SqEY?autoplay=1&mute=1" frameborder="0" allowfullscreen></iframe>
         </div>
         </div>
-        <div class="absolute top-72 left-1/2 transform -translate-x-1/2 cursor-pointer pt-16" onclick="toggleContent('seq_acampada')">
+        <div class="absolute top-72 left-1/2 transform -translate-x-1/2 cursor-pointer pt-16 mb-6" onclick="toggleContent('seq_acampada')">
           <svg class="w-6 h-6 text-white" fill="none" stroke="gray" viewBox="0 0 24 24"
                xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -220,7 +221,7 @@
             <iframe class="mx-auto flex flex-center rounded" width="1200" height="700" src="https://www.youtube.com/embed/1OQhzbPSsFA?autoplay=1&mute=1" frameborder="0" allowfullscreen></iframe>
         </div>
       </div>
-        <div class="absolute top-72 left-1/2 transform -translate-x-1/2 cursor-pointer pt-16" onclick="toggleContent('seq_turisme')">
+        <div class="absolute top-72 left-1/2 transform -translate-x-1/2 cursor-pointer pt-16 mb-6" onclick="toggleContent('seq_turisme')">
           <svg class="w-6 h-6 text-white" fill="none" stroke="gray" viewBox="0 0 24 24"
                xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -281,7 +282,6 @@ modalVideo.play();
   closeIcon.style.display = 'block';
   closeIcon.addEventListener('click', function() {
     closeModal(modalId, videoId);
-    reloadPage(); 
   });
 
   var modalContent = document.getElementById(modalId);
@@ -302,10 +302,6 @@ function closeModal(modalId, videoId) {
     modalVideo.src = '';
   }
 
-}
-
-function reloadPage() {
-  location.reload();
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -336,6 +332,7 @@ function toggleContent(elementId) {
   currentOpenContentId = content.classList.contains('hidden') ? null : elementId;
 }
   </script>
+
 
 </body>
 </html>
