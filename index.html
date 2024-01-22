@@ -42,7 +42,7 @@
       <div class="relative group">
       <div class="border border-gray-80 px-8 rounded mr-4">
         <div class="py-6 px-8 justify-center flex flex-center border bg-gray-300/20 my-4 rounded shadow shadow-lg">
-          <a href="#" onclick="showModal('https://www.youtube.com/watch?v=e2tOAwYcBAs', 'noticiesVideo', 'closeIcon')">
+          <a href="#" onclick="showModal('https://www.youtube.com/watch?v=e2tOAwYcBAs', 'noticiesVideo', 'closeIcon');playVideo();">
             <img class="w-96 h-auto rounded" src="imatges/diaNoticies.gif">
           </a>
         </div>
@@ -94,7 +94,7 @@
       <div class="relative group">
       <div class="border border-gray-80 px-8 rounded mr-4">
         <div class="py-6 px-8 justify-center flex flex-center border bg-gray-300/20 my-4 rounded shadow shadow-lg">
-          <a href="#" onclick="showModal('https://www.youtube.com/watch?v=B2RFjC_ZWV8', 'residusVideo', 'closeIconResidus')">
+          <a href="#" onclick="showModal('https://www.youtube.com/watch?v=B2RFjC_ZWV8', 'residusVideo', 'closeIconResidus');playVideo();">
           <img class="w-96 h-auto rounded" src="imatges/Com gestionar els residus.gif">
           </a>
         </div>
@@ -150,7 +150,7 @@
       <div class="relative group">
       <div class="border border-gray-80 px-8 rounded mr-4">
         <div class="py-6 px-8 justify-center flex flex-center border bg-gray-300/20 my-4 rounded shadow shadow-lg">
-          <a href="#" onclick="showModal('https://www.youtube.com/watch?v=wXij200SqEY', 'acampadaVideo', 'closeIconAcampada')">
+          <a href="#" onclick="showModal('https://www.youtube.com/watch?v=wXij200SqEY', 'acampadaVideo', 'closeIconAcampada');playVideo();">
             <img class="w-96 h-auto rounded" src="imatges/ACAMPADA.gif">
           </a>
         </div>
@@ -204,7 +204,7 @@
       <div class="relative group">
       <div class="border border-gray-80 px-8 rounded mr-4">
         <div class="py-6 px-8 justify-center flex flex-center border bg-gray-300/20 my-4 rounded shadow shadow-lg">
-          <a href="#" onclick="showModal('https://www.youtube.com/watch?v=1OQhzbPSsFA', 'llocsVideo', 'closeIconLlocs')">
+          <a href="#" onclick="showModal('https://www.youtube.com/watch?v=1OQhzbPSsFA', 'llocsVideo', 'closeIconLlocs');playVideo();">
           <img class="w-96 h-auto rounded" src="imatges/LLOCS.gif">
           </a>
         </div>
@@ -260,28 +260,21 @@
   <script>
  
       // per als videos 
- function showModal(videoSrc, modalId, closeIconId, videoId) {
-  var modal = document.getElementById(modalId);
-  modal.style.display = 'flex';
+      function showModal(videoSrc, modalId, closeIconId) {
+    var modal = document.getElementById(modalId);
+    modal.style.display = 'flex';
 
-  var modalVideo = document.getElementById(videoId);
-  if (modalVideo) {
-    modalVideo.src = videoSrc;
-    modalVideo.load();
-    modalVideo.currentTime = 0;
+    var modalVideo = document.getElementById('modalVideoFrame');
+    if (modalVideo) {
+      modalVideo.src = videoSrc;
+      modalVideo.load();
+      playVideo();
+    }
 
-  modalVideo.addEventListener('ended', function() {
-  modalVideo.currentTime = 0;
-  modalVideo.play();
-});
-
-modalVideo.play();
-  }
-
-  var closeIcon = document.getElementById(closeIconId); 
+  var closeIcon = document.getElementById(closeIconId);
   closeIcon.style.display = 'block';
-  closeIcon.addEventListener('click', function() {
-    closeModal(modalId, videoId);
+  closeIcon.addEventListener('click', function () {
+    closeModal(modalId);
   });
 
   var modalContent = document.getElementById(modalId);
@@ -290,21 +283,28 @@ modalVideo.play();
   document.body.style.overflow = 'hidden';
 }
 
-// per tancar 
-function closeModal(modalId, videoId) {
+function playVideo() {
+  var modalVideo = document.getElementById('modalVideoFrame');
+  if (modalVideo) {
+    modalVideo.currentTime = 0;
+    modalVideo.play();
+  }
+}
+
+function closeModal(modalId) {
   var modal = document.getElementById(modalId);
   modal.style.display = 'none';
   document.body.style.overflow = 'auto';
-
-  var modalVideo = document.getElementById(videoId);
   
+  var modalVideo = document.getElementById('modalVideoFrame');
   if (modalVideo) {
     modalVideo.src = '';
+    modalVideo.pause();
   }
-
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+
+document.addEventListener("DOMContentLoaded", function () {
   if (event.target === this) {
     closeModal('noticiesVideo', 'noticiesVideoId');
     closeModal('residusVideo', 'residusVideoId');
@@ -312,9 +312,6 @@ document.addEventListener("DOMContentLoaded", function() {
     closeModal('llocsVideo', 'llocsVidedoId');
   }
 });
-
-
-
 
 // fleches 
 let currentOpenContentId = null;
@@ -332,7 +329,6 @@ function toggleContent(elementId) {
   currentOpenContentId = content.classList.contains('hidden') ? null : elementId;
 }
   </script>
-
 
 </body>
 </html>
