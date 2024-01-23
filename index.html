@@ -21,10 +21,99 @@
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script src="https://www.youtube.com/iframe_api"></script>
 </head>
+
+<script>
+  
+function loadScript(src, callback) {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src = src;
+  script.onload = callback;
+  document.head.appendChild(script);
+}
+
+// Carga asincrónica d'particles.min.js
+loadScript('https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js', function() {
+  console.log('particles.min.js cargat');
+});
+
+// Carga asincrónica d'iframe_api
+loadScript('https://www.youtube.com/iframe_api', function() {
+  console.log('iframe_api cargat');
+});
+
+function showModal(videoSrc, modalId, closeIconId) {
+  var modal = document.getElementById(modalId);
+  modal.style.display = 'flex';
+
+  var modalVideo = document.querySelector('iframe');
+  if (modalVideo) {
+    modalVideo.src = videoSrc;
+  }
+
+var closeIcon = document.getElementById(closeIconId);
+closeIcon.style.display = 'block';
+closeIcon.addEventListener('click', function () {
+  closeModal(modalId);
+});
+
+var modalContent = document.getElementById(modalId);
+modalContent.classList.add('modal-content');
+
+document.body.style.overflow = 'hidden';
+}
+
+function playVideo() {
+var modalVideo = document.getElementById('modalVideoFrame');
+if (modalVideo) {
+  modalVideo.currentTime = 0;
+  modalVideo.play();
+}
+}
+
+function closeModal(modalId) {
+var modal = document.getElementById(modalId);
+modal.style.display = 'none';
+document.body.style.overflow = 'auto';
+
+var modalVideo = document.getElementById('modalVideoFrame');
+if (modalVideo) {
+  modalVideo.src = '';
+  modalVideo.pause();
+}
+}
+
+
+document.addEventListener("DOMContentLoaded", function () {
+if (event.target === this) {
+  closeModal('noticiesVideo', 'noticiesVideoId');
+  closeModal('residusVideo', 'residusVideoId');
+  closeModal('acampadaVideo', 'acampadaVideoId');
+  closeModal('llocsVideo', 'llocsVidedoId');
+}
+});
+
+// fleches 
+let currentOpenContentId = null;
+
+
+function toggleContent(elementId) {
+const content = document.getElementById(elementId);
+
+if (currentOpenContentId && currentOpenContentId !== elementId) {
+    const currentOpenContent = document.getElementById(currentOpenContentId);
+    currentOpenContent.classList.add('hidden');
+}
+
+content.classList.toggle('hidden');
+currentOpenContentId = content.classList.contains('hidden') ? null : elementId;
+}
+</script>
+
 <body class="bg-sky-200/10">
   <div class="z-50 relative">
     <div id="particles-js"></div>
-    <script type="" src="script.js" defer></script>
+    <script type="module" src="script.js" defer></script>
   <div id="principal" class="pt-4">  
     <a class="mt-6 mb-4 justify-center flex flex-center animate-pulse text-blue-500/50 font-semibold">
       INFORMACIÓ
