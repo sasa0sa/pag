@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="style.css" rel="stylesheet">
   <title>Informació</title>
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script src="https://www.youtube.com/iframe_api"></script>
   <style>
     body {
       overflow: visible;
@@ -20,11 +18,13 @@
       z-index: -1;
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://www.youtube.com/iframe_api"></script>
 </head>
 <body class="bg-sky-200/10">
   <div class="z-50 relative">
     <div id="particles-js"></div>
-    <script type="module" src="script.js"></script>
+    <script type="" src="script.js" defer></script>
   <div id="principal" class="pt-4">  
     <a class="mt-6 mb-4 justify-center flex flex-center animate-pulse text-blue-500/50 font-semibold">
       INFORMACIÓ
@@ -56,7 +56,7 @@
           <span id="closeIcon" class="absolute bottom-0 left-0 p-8 cursor-pointer text-gray-600">
             &#10006;
           </span>                  
-            <iframe class=" mx-auto flex flex-center rounded" width="1200" height="700" src="https://www.youtube.com/embed/e2tOAwYcBAs" frameborder="0" allowfullscreen></iframe>
+            <iframe class=" mx-auto flex flex-center rounded" width="1000" height="500" src="https://www.youtube.com/embed/e2tOAwYcBAs" frameborder="0" allowfullscreen></iframe>
         </div>
       </div>
         <div class="absolute top-72 left-1/2 transform -translate-x-1/2 cursor-pointer pt-16" onclick="toggleContent('seq_anuncis')">
@@ -108,7 +108,7 @@
           <span id="closeIconResidus" class="absolute bottom-0 left-0 p-8 cursor-pointer text-gray-600" style="display: block;">
             &#10006;
           </span>                  
-            <iframe class="mx-auto flex flex-center rounded" width="1200" height="700" src="https://www.youtube.com/embed/B2RFjC_ZWV8" frameborder="0" allowfullscreen></iframe>
+            <iframe class="mx-auto flex flex-center rounded" width="1000" height="500" src="https://www.youtube.com/embed/B2RFjC_ZWV8" frameborder="0" allowfullscreen></iframe>
         </div>
       </div>
       <div class="absolute top-72 left-1/2 transform -translate-x-1/2 cursor-pointer pt-16" onclick="toggleContent('seq_residus')">
@@ -164,7 +164,7 @@
           <span id="closeIconAcampada" class="absolute bottom-0 left-0 p-8 cursor-pointer text-gray-600" style="display: block;">
             &#10006;
           </span>                  
-            <iframe class="mx-auto flex flex-center rounded" width="1200" height="700" src="https://www.youtube.com/embed/wXij200SqEY" frameborder="0" allowfullscreen></iframe>
+            <iframe class="mx-auto flex flex-center rounded" width="1000" height="500" src="https://www.youtube.com/embed/wXij200SqEY" frameborder="0" allowfullscreen></iframe>
         </div>
         </div>
         <div class="absolute top-72 left-1/2 transform -translate-x-1/2 cursor-pointer pt-16 mb-6" onclick="toggleContent('seq_acampada')">
@@ -217,7 +217,7 @@
           <span id="closeIconLlocs" class="absolute bottom-0 left-0 p-8 cursor-pointer text-gray-600" style="display: block;">
             &#10006;
           </span>                  
-            <iframe class="mx-auto flex flex-center rounded" width="1200" height="700" src="https://www.youtube.com/embed/1OQhzbPSsFA" frameborder="0" allowfullscreen></iframe>
+            <iframe class="mx-auto flex flex-center rounded" width="1000" height="500" src="https://www.youtube.com/embed/1OQhzbPSsFA" frameborder="0" allowfullscreen></iframe>
         </div>
       </div>
         <div class="absolute top-72 left-1/2 transform -translate-x-1/2 cursor-pointer pt-16 mb-6" onclick="toggleContent('seq_turisme')">
@@ -255,76 +255,6 @@
     </div>
     </div>
   </div>
-
-  <script>
- 
-function showModal(videoSrc, modalId, closeIconId) {
-    var modal = document.getElementById(modalId);
-    modal.style.display = 'flex';
-
-    var modalVideo = document.querySelector('iframe');
-    if (modalVideo) {
-      modalVideo.src = videoSrc;
-    }
-
-  var closeIcon = document.getElementById(closeIconId);
-  closeIcon.style.display = 'block';
-  closeIcon.addEventListener('click', function () {
-    closeModal(modalId);
-  });
-
-  var modalContent = document.getElementById(modalId);
-  modalContent.classList.add('modal-content');
-
-  document.body.style.overflow = 'hidden';
-}
-
-function playVideo() {
-  var modalVideo = document.getElementById('modalVideoFrame');
-  if (modalVideo) {
-    modalVideo.currentTime = 0;
-    modalVideo.play();
-  }
-}
-
-function closeModal(modalId) {
-  var modal = document.getElementById(modalId);
-  modal.style.display = 'none';
-  document.body.style.overflow = 'auto';
-  
-  var modalVideo = document.getElementById('modalVideoFrame');
-  if (modalVideo) {
-    modalVideo.src = '';
-    modalVideo.pause();
-  }
-}
-
-
-document.addEventListener("DOMContentLoaded", function () {
-  if (event.target === this) {
-    closeModal('noticiesVideo', 'noticiesVideoId');
-    closeModal('residusVideo', 'residusVideoId');
-    closeModal('acampadaVideo', 'acampadaVideoId');
-    closeModal('llocsVideo', 'llocsVidedoId');
-  }
-});
-
-// fleches 
-let currentOpenContentId = null;
-
-
-function toggleContent(elementId) {
-  const content = document.getElementById(elementId);
-
-  if (currentOpenContentId && currentOpenContentId !== elementId) {
-      const currentOpenContent = document.getElementById(currentOpenContentId);
-      currentOpenContent.classList.add('hidden');
-  }
-
-  content.classList.toggle('hidden');
-  currentOpenContentId = content.classList.contains('hidden') ? null : elementId;
-}
-  </script>
 
 </body>
 </html>
