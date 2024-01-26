@@ -48,7 +48,7 @@ function showModal(videoSrc, modalId, closeIconId) {
 
   var modalVideo = document.querySelector('iframe');
   if (modalVideo) {
-    modalVideo.src = videoSrc;
+    modalVideo.src = videoSrc + "?start=0&autoplay=1";
   }
 
 var closeIcon = document.getElementById(closeIconId);
@@ -79,7 +79,6 @@ document.body.style.overflow = 'auto';
 var modalVideo = document.getElementById('modalVideoFrame');
 if (modalVideo) {
   modalVideo.src = '';
-  modalVideo.pause();
 }
 }
 
