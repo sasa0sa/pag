@@ -46,7 +46,7 @@ function showModal(videoSrc, modalId, closeIconId) {
   var modal = document.getElementById(modalId);
   modal.style.display = 'flex';
 
-  var modalVideo = document.querySelector('iframe');
+  var modalVideo = modal.querySelector('iframe');
   if (modalVideo) {
     modalVideo.src = videoSrc + "?start=0&autoplay=1";
   }
