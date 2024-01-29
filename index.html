@@ -76,10 +76,11 @@ var modal = document.getElementById(modalId);
 modal.style.display = 'none';
 document.body.style.overflow = 'auto';
 
-var modalVideo = document.getElementById('modalVideoFrame');
-if (modalVideo) {
-  modalVideo.src = '';
-}
+var modalVideo = modal.querySelector('iframe');
+  if (modalVideo) {
+    modalVideo.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+    modalVideo.src = '';
+  }
 }
 
 
