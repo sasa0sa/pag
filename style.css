@@ -46,3 +46,14 @@
   }
 }
 
+@media screen and (min-width: 300px) {
+  body {
+    zoom: 60%;
+  }
+}
+
+@media screen and (min-width: 799px) {
+  body {
+    zoom: 60%;
+  }
+}
