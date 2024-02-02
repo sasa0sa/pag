@@ -34,9 +34,15 @@
   }
 }
 
-@media screen {
+@media screen{
   body {
     zoom: 50%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  body {
+    zoom: 100%;
   }
 }
 
